@@ -1,0 +1,100 @@
+$red: #FF3535;
+$grey: #F7F7F7;
+
+.programm {
+    margin: 0 auto 60px;
+    padding: 0 20px;
+    width: 90vw;
+    @media screen and(max-width: 480px) {
+        width: 100vw;
+        margin-bottom: 20px;
+    }
+
+    &__title {
+        font-size: 1.1rem;
+        margin-bottom: 50px;
+        @media screen and(max-width: 480px) {
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+    }
+
+    &__modules-block {
+        display: flex;
+        @media screen and(max-width: 480px) {
+            flex-direction: column;
+        }
+    }
+
+    &__module {
+        width: 50%;
+        display: flex;
+        @media screen and(max-width: 480px) {
+            width: 95%;
+            margin: 0 auto 20px;
+            flex-direction: column;
+
+            .active &__title {
+                background-color: $red;
+                color: #fff;
+            } 
+            .active &__title::before {
+                content: "-";
+                color: #fff;
+                left: 12px;
+                top: -8px;
+            }
+            .active &__list {
+                display: block;
+            }
+        }
+
+        &__title {
+            border-top: 2px solid $red;
+            padding-top: 30px;
+            margin-right: 40px;
+            font-weight: 500;
+            transition: all .5s;
+            @media screen and(max-width: 480px) {
+                font-size: .9rem;
+                border: none;
+                background-color: $grey;
+                font-weight: normal;
+                padding: 15px 45px;
+                width: 100%; 
+                margin: 0;
+                position: relative;
+                vertical-align: middle;
+
+                &::before{
+                    content: '+';
+                    color: #d9d9d9;
+                    font-weight: 200;
+                    font-size: 2.5rem;
+                    position: absolute;
+                    left: 7px;
+                    top: -5px;
+                }
+            }
+        }
+
+        &__list {
+            padding: 30px 20px 0;
+            font-size: 0.7rem;
+            width: 70%;
+            margin: 0 auto;
+            @media screen and(max-width: 480px) {
+                width: 90%; 
+                display: none;
+            }
+
+            li {
+                color: $red;
+                margin-bottom: 10px;
+                span {
+                    color: #000;
+                }
+            }
+        }
+    }
+}
